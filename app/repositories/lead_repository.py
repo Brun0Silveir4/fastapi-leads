@@ -33,5 +33,11 @@ class LeadRepository:
         
         return {"id": lead_id, **lead}
     
-    async def delete(self, lead_id: str) -> None:
-        await collection.delete_one({"_id": ObjectId(lead_id)})
+    async def delete(self, lead_id: str) -> dict | None:
+        leadToDelete = await collection.find_one({"_id": ObjectId(lead_id)})
+        
+        if not leadToDelete:
+            return None 
+        
+        return await collection.delete_one({"_id": ObjectId(lead_id)})
+        
