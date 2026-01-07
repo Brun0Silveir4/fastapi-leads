@@ -112,7 +112,7 @@ A aplicação ficará disponivel em `http://localhost:8000/`
 
 <br>
 
-## 6. Observações finais
+## Observações finais
 
 - MongoDB utiliza docker para persistência
 - API totalmente assincrona
